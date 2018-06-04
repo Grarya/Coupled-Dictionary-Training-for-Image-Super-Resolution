@@ -17,10 +17,9 @@ EPS = 1e-9;
 x=zeros(size(A, 1), 1);           %coeff
 
 grad=A*sparse(x)+b;
-[ma mi]=max(abs(grad).*(x==0));
+[ma mi]=max(abs(grad).*(x==0));%Get the maximum value(ma) and the index(mi)
 
 while true
-    
   if grad(mi)>lambda+EPS
     x(mi)=(lambda-grad(mi))/A(mi,mi);
   elseif grad(mi)<-lambda-EPS
